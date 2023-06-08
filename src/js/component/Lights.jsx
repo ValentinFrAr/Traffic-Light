@@ -1,28 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
-function Lights() {
-  const [color, setColor] = useState("red-click");
-  const [newColor, setNewColor] = useState(false);
-
-  const handleColorChange = (newColor) => {
-    setColor(newColor);
-  };
-
-  const handleRandomColor = () => {
-    const colors = ["red-click", "yellow-click", "green-click"];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    setColor(randomColor);
-    setNewColor(false);
-  };
-
-  const handleNewColor = () => {
-    setNewColor(!newColor);
-  };
-
-  const handleNewColorClick = () => {
-    setColor("purple");
-  };
-
+const Lights = ({
+  color,
+  newColor,
+  handleColorChange,
+  handleNewColorClick,
+}) => {
   return (
     <div>
       <div
@@ -58,20 +41,8 @@ function Lights() {
           ></div>
         )}
       </div>
-      <div className="buttons">
-        <div className="btn-random">
-          <button className="btn-change" onClick={handleRandomColor}>
-            Random Traffic
-          </button>
-        </div>
-        <div className="btn-new">
-          <button className="btn-change" onClick={handleNewColor}>
-            New Color
-          </button>
-        </div>
-      </div>
     </div>
   );
-}
+};
 
 export default Lights;
